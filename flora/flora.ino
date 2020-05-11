@@ -232,7 +232,7 @@ bool readFloraDataCharacteristic(BLERemoteService* floraService, String baseTopi
 
   now = time(nullptr);
   String time_str = toISOString(gmtime(&now),true);
-  snprintf(buffer, 64, "%s", time_str);
+  snprintf(buffer, 64, "%s", time_str.c_str());
   client.publish((baseTopic + "time").c_str(), buffer);
   Serial.print("time:");
   Serial.println(time_str);
